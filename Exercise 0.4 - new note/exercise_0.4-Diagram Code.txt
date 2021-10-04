@@ -1,0 +1,35 @@
+title Exercise 0.4: new note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server->browser: HTTP status code 302 (URL Redirect)
+note over server:
+Status code 302: This is a URL redirect, 
+Server asks the browser to make a GET request
+to the URL 
+https://studies.cs.helsinki.fi/exampleapp/notes
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server->browser: HTML Code
+note over browser:
+For the correct functioning of the HTML page,
+which is sent by the server, the browser needs
+main.css and main.js.
+So, browser first makes the GET request to 
+obtain main.css and then makes the GET request to 
+obtain main.js
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server->browser: main.js
+note over browser:
+Browser starts executing the code in main.js,
+but it needs data.json that is on the server.
+Then a GET request is made to the server to get data.json.
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser: data.json
+note over browser:
+Browser executes the event handler
+that renders the notes on the page.
+end note
