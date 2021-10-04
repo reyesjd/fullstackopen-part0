@@ -1,0 +1,50 @@
+title Exercise 0.6: spa new note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->browser: HTML Code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server->browser: spa.js
+
+note over browser:
+Spa.js starts to run, and it makes 
+a request to the server asking for data.json
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser: data.json (content-type: application/json)
+
+note over browser:
+The event handler is executed which adds 
+the notes, that are in data.json, 
+to the DOM using an ul and then the notes
+are rendered on the page.
+end note
+
+note over browser:
+The user submit the form with the
+information that the new note has.
+end note
+
+note over browser:
+The user submit the form with the
+information that the new note has.
+end note
+
+note over browser:
+The information of the element is 
+obtained and it is added to a li 
+element, then this li element is 
+added to the ul element that 
+contains the notes.
+end note
+
+note over browser:
+The new note is sent to the server
+to be added to the server-side 
+data.json.
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa \n {"content": "new note","date": "date"}
+server->browser: {"message":"note created"} (application/json)
