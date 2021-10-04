@@ -1,0 +1,23 @@
+title Exercise 0.5: single page app
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->browser: HTML Code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server->browser: spa.js
+
+note over browser:
+Spa.js starts to run, and it makes 
+a request to the server asking for data.json
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser: data.json (content-type: application/json)
+
+note over browser:
+The event handler is executed which adds 
+the notes, that are in data.json, 
+to the DOM using an ul and then the notes
+are rendered on the page.
+end note
